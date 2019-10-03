@@ -1,14 +1,14 @@
-HW3
-# change to home directory
+# HW3
+1. change to home directory
 $ cd ~
-#c reate a folder
+2. c reate a folder
 $ mkdir folder name
-# print current directory
+3. print current directory
 $pwd
-# list contents of a directory
+4. list contents of a directory
 ls -a
-# change to another directory
+5. change to another directory
 $ cd directory name
-# insert a string into a text file
+6. insert a string into a text file
 $ echo "text". >> file name
-https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
+7. https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
