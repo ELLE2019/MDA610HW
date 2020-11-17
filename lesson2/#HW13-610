@@ -18,9 +18,10 @@ ORDER BY first_name ASC;
 
 SELECT count(*)
 FROM actor
-HAVING count(DISTINCT(last_name))=1;
+HAVING count(DISTINCT(last_name)=1);
 
 # number of films involve a "Crocodile" and a "Shark"
+
 SELECT count(*)
 FROM film 
 WHERE description LIKE '%Crocodile%'
@@ -37,7 +38,8 @@ WHERE description LIKE '%Crocodile%'
 OR description LIKE '%Shark%'
 ORDER BY last_name ASC;
 
-# film categories between 40 and 60 films.
+# film categories between 40 and 60 films
+
 SELECT count(*), name
 FROM film_category a JOIN category b
 ON a.category_id=b.category_id
@@ -45,14 +47,16 @@ GROUP BY b.category_id
 HAVING 40<=count(*)<=60
 ORDER BY count(*) DESC;
 
-# first name same as actor with ID 24.
+# first name same as actor where ID = 24
+
 SELECT concat(first_name, ' ', last_name) AS Name
 FROM actor
-WHERE first_name=(SELECT first_name
+WHERE first_name = (SELECT first_name
 FROM actor
 WHERE actor_id=24);
 
-# full name of the actor who has appeared in the most films.
+# full name of the actor who has appeared in the most films
+
 SELECT concat(first_name, ' ', last_name) AS Name,
 count(a.actor_id)
 FROM film_actor a JOIN actor b
@@ -62,6 +66,7 @@ ORDER BY count(a.actor_id) DESC
 LIMIT 1;
 
 # Return the film categories with an AVG length longer than overall AVG
+
 SELECT name, AVG(length)
 FROM film a JOIN category b JOIN film_category c
 ON a.film_id=c.film_id
@@ -70,6 +75,7 @@ GROUP BY name
 HAVING AVG(length)>(SELECT AVG(length)
 FROM film);
 
-# Return the total sales of each store.
+# Return the total sales of each store
+
 SELECT total_sales
 FROM sales_by_store;
